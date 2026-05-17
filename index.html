@@ -42,12 +42,12 @@
     <div id="exam-simulation-panel" class="exam-container-layout">
         <div class="score-banner" id="score-result-banner">
             <h2>Экзаменационная работа завершена!</h2>
-            <p>Ваш результат за тестовую Часть 1 (задания 1–12):</p>
-            <div class="score-num"><span id="user-score-val">0</span> / 12 баллов</div>
+            <p>Ваш результат за тестовую Часть 1:</p>
+            <div class="score-num"><span id="user-score-val">0</span> баллов</div>
             <button class="btn-finish-exam" style="background:#fff; color:var(--primary);" onclick="exitExamToMenu()">В главное меню</button>
         </div>
         <div class="exam-sticky-bar">
-            <div style="font-weight: 800; font-size: 16px; color: var(--primary planetary);" id="exam-title-display">КИМ</div>
+            <div style="font-weight: 800; font-size: 16px; color: var(--primary);" id="exam-title-display">КИМ</div>
             <div class="timer-box"><i class="fa-solid fa-clock"></i> <span>Интерактивный режим</span></div>
             <div style="display:flex; gap:10px;">
                 <button class="btn-finish-exam" style="background:var(--success);" onclick="finishExamSimulation()">Проверить работу</button>
@@ -91,7 +91,7 @@
                     <div class="quiz-actions">
                         <input type="text" class="quiz-input" id="quiz-user-input" placeholder="Введите ваш ответ...">
                         <button class="quiz-submit-btn" id="quiz-sub-action" onclick="checkTrainerAnswer()">Ответить</button>
-                        <button class="quiz-next-btn" id="quiz-next-action" onclick="renderSingleQuestion()">Следующий вопрос <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="quiz-next-btn" id="quiz-next-action" onclick="renderSingleQuestion()">Следующий <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                     <div class="quiz-feedback" id="quiz-feedback-box"></div>
                 </div>
@@ -112,10 +112,10 @@
 <div class="theory-modal-overlay" id="theoryModal" onclick="if(event.target===this) closeTheoryModal()">
     <div class="theory-modal-card">
         <div class="modal-header-box">
-            <h3 id="modalTitle">Параграф учебника</h3>
+            <h3 id="modalTitle">Параграф</h3>
             <button class="modal-close-btn" onclick="closeTheoryModal()">&times;</button>
         </div>
-        <div class="modal-body-content" id="modalBody">Загрузка текста параграфа...</div>
+        <div class="modal-body-content" id="modalBody"></div>
     </div>
 </div>
 
