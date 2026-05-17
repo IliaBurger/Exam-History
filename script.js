@@ -1,5 +1,5 @@
 // ========================================================
-//  УНИВЕРСАЛЬНЫЙ АСИНХРОННЫЙ ДВИЖОК ПЛАТФОРМЫ (V5.0)
+//  ГЛОБАЛЬНЫЙ ИНТЕРАКТИВНЫЙ ДВИЖОК ПЛАТФОРМЫ (V5.0)
 // ========================================================
 
 const russiaParagraphsList = ["Восточные славяне и их соседи (VI–IX вв.)", "Формирование Древнерусского государства. Первые Рюриковичи", "Владимир Святославич. Крещение Руси", "Расцвет Руси при Ярославе Мудром. «Русская Правда»", "Русь при Владимире Мономахе", "Главные центры раздробленности", "Культура и быт Древней Руси", "Монгольское завоевание и ордынское владычество", "Экспансия с Запада. Александр Невский", "Возвышение Москвы. Куликовская битва", "Создание единого Русского государства при Иване III", "Иван IV Грозный: реформы Избранной рады и Опричнина", "Культура Руси в XIV–XVI вв.", "Смутное время в России: причины, этапы, последствия", "Россия при первых Романовых. Бунташный век", "Церковный раскол в XVII в.", "Экономическое развитие России в XVII в. Освоение Сибири", "Эпоха Петра I: Северная война и создание империи", "Эпоха дворцовых переворотов", "Екатерина II и «просвещённый абсолютизм»", "Правление Павла I. Культура в XVIII в.", "Россия в первой половине XIX в. Александр I", "Движение декабристов: тайные общества и восстание", "Правление Николая I: консерватизм", "Александр II и Великие реформы 1860–1870-х гг.", "Общественные движения во второй половине XIX в.", "Правление Александра III: политика контрреформ", "Культура, наука и искусство России в XIX в.", "Россия на рубеже XIX–XX вв. Николай II", "Россия в Первой мировой войне. Кризис власти", "Гражданская война в России", "Образование СССР. Сталинская модернизация", "Великая Отечественная война (1941–1945 гг.)", "СССР во второй половине ХХ века", "Распад СССР. Создание РФ. Россия на рубеже ХХ–ХХI вв."];
@@ -9,7 +9,7 @@ let currentActiveExamType = "ege";
 let currentActiveKIM = null;
 let globalLoadedVariants = null; 
 
-// НАВИГАЦИЯ
+// ДВИЖОК НАВИГАЦИИ ПЛАТФОРМЫ
 function switchPanel(panelId, btn) {
     document.getElementById('exam-simulation-panel').style.display = 'none';
     document.getElementById('platform-main-nav').style.display = 'grid';
@@ -42,7 +42,7 @@ function exitExamToMenu() {
     document.getElementById(btnId).classList.add('active');
 }
 
-// СИМУЛЯТОР ПОЛНЫХ КИМ ИЗ API (VARIANTS.JSON)
+// РЕНДЕР ОНЛАЙН СДАЧИ КИМ
 function startExamKIMSimulation(tier, variantNum) {
     const key = `${currentActiveExamType}_${tier}_${variantNum}`;
     
@@ -50,10 +50,9 @@ function startExamKIMSimulation(tier, variantNum) {
         currentActiveKIM = dataBlock;
         document.querySelectorAll('.edu-panel').forEach(p => p.style.display = 'none');
         document.getElementById('platform-main-nav').style.display = 'none';
-        
         document.getElementById('exam-simulation-panel').style.display = 'block';
         document.getElementById('score-result-banner').style.display = 'none';
-        document.getElementById('exam-title-display').innerHTML = `<span>${dataBlock.title}</span>`;
+        document.getElementById('exam-title-display').innerHTML = `<span>${dataBlock.title}</span> <button class='btn-finish-exam' style='background:var(--primary-light); margin-left:15px;' onclick='printCurrentKIM()'><i class='fa-solid fa-print'></i> Печать КИМ</button>`;
 
         document.getElementById('kim-part1-container').innerHTML = dataBlock.part1.map(q => `
             <div class="task-card-kim" id="kim-card-q${q.id}">
@@ -80,9 +79,8 @@ function startExamKIMSimulation(tier, variantNum) {
             .then(res => res.json())
             .then(data => {
                 globalLoadedVariants = data;
-                const specificKIM = data[key] || data[`ege_easy_1`]; // Фолбэк на базовый, если узел еще не заполнен
-                runRender(specificKIM);
-            }).catch(() => alert('Ошибка загрузки КИМ из файла variants.json'));
+                runRender(data[key] || data[`ege_easy_1`]);
+            }).catch(() => alert('Ошибка чтения файла КИМ variants.json'));
     } else {
         runRender(globalLoadedVariants[key] || globalLoadedVariants[`ege_easy_1`]);
     }
@@ -124,58 +122,112 @@ function finishExamSimulation() {
 
 function printCurrentKIM() { window.print(); }
 
-// ТРЕНАЖЕР
-let currentTrainerExamType = "ege"; let currentTrainerDiff = "easy"; let currentTrainerQuestion = null; let globalLoadedQuestions = null;
 
-function selectTrainerSection(type) {
-    document.querySelectorAll('#sec-ege-btn, #sec-oge-btn').forEach(b => b.classList.remove('selected'));
-    currentTrainerExamType = type;
-    document.getElementById(`sec-${type}-btn`).classList.add('selected');
+// ========================================================
+// 4. ДВИЖОК ОНЛАЙН-ТРЕНАЖЁРА С РАЗДЕЛЕНИЕМ РОССИЯ / ВСЕМИРКА
+// ========================================================
+let currentTrainerSection = "russia"; // "russia" или "world"
+let currentTrainerDiff = "easy";
+let currentTrainerQuestion = null;
+let globalLoadedQuestions = null; 
+
+function selectTrainerSection(sect) {
+    document.querySelectorAll('#sec-russia-btn, #sec-world-btn').forEach(b => b.classList.remove('selected'));
+    currentTrainerSection = sect;
+    document.getElementById(`sec-${sect}-btn`).classList.add('selected');
     initTrainerQuiz();
 }
+
 function selectTrainerDifficulty(diff, el) {
     currentTrainerDiff = diff;
     document.querySelectorAll('#diff-easy-btn, #diff-medium-btn, #diff-hard-btn').forEach(b => b.classList.remove('selected'));
     if (el) el.classList.add('selected');
     initTrainerQuiz();
 }
+
 function initTrainerQuiz() {
     if (!globalLoadedQuestions) {
         fetch('questions.json')
-            .then(res => res.json())
-            .then(data => { globalLoadedQuestions = data; renderSingleQuestion(); })
-            .catch(() => { document.getElementById('quiz-question-text').innerText = "Ошибка загрузки банка вопросов."; });
-    } else { renderSingleQuestion(); }
+            .then(res => {
+                if (!res.ok) throw new Error();
+                return res.json();
+            })
+            .then(data => {
+                globalLoadedQuestions = data;
+                renderSingleQuestion();
+            })
+            .catch(() => {
+                // ФОЛБЭК-ЗАГЛУШКА НА СЛУЧАЙ ОТСУТСТВИЯ ЗАПОЛНЕННОГО ФАЙЛА QUESTIONS.JSON
+                globalLoadedQuestions = {
+                    "russia": {
+                        "easy": [{ "q": "В каком году произошло Крещение Руси? (Введи цифрами)", "a": "988" }],
+                        "medium": [{ "q": "В каком году было принято Соборное уложение Алексея Михайловича?", "a": "1649" }],
+                        "hard": [{ "q": "Назовите кочевой народ, разгромленный Ярославом Мудрым в 1036 году у стен Киева.", "a": "печенеги" }]
+                    },
+                    "world": {
+                        "easy": [{ "q": "В каком веке началась Реформация в Германии под руководством Мартина Лютера? (Римскими цифрами)", "a": "XVI" }],
+                        "medium": [{ "q": "В каком году произошла Великая французская буржуазная революция?", "a": "1789" }],
+                        "hard": [{ "q": "В каком году был подписан Вестфальский мирный договор, завершивший Тридцатилетнюю войну?", "a": "1648" }]
+                    }
+                };
+                renderSingleQuestion();
+            });
+    } else {
+        renderSingleQuestion();
+    }
 }
+
 function renderSingleQuestion() {
     if (!globalLoadedQuestions) return;
-    const pool = globalLoadedQuestions[currentTrainerExamType]?.[currentTrainerDiff];
-    if (!pool || pool.length === 0) return;
-    currentTrainerQuestion = pool[Math.floor(Math.random() * pool.length)];
-    document.getElementById('quiz-meta-info').innerText = `${currentTrainerExamType.toUpperCase()} • Сложность: ${currentTrainerDiff.toUpperCase()}`;
+    
+    const pool = globalLoadedQuestions[currentTrainerSection]?.[currentTrainerDiff];
+    if (!pool || pool.length === 0) {
+        document.getElementById('quiz-question-text').innerText = "Пул вопросов для выбранного подраздела пуст. Допишите вопросы в questions.json!";
+        return;
+    }
+    
+    // Выбираем абсолютно случайный вопрос из массива
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    currentTrainerQuestion = pool[randomIndex];
+    
+    const metaSectionName = currentTrainerSection === "russia" ? "История России" : "Всеобщая история";
+    document.getElementById('quiz-meta-info').innerText = `${metaSectionName} • Уровень: ${currentTrainerDiff.toUpperCase()} • База вопросов: ${pool.length}`;
     document.getElementById('quiz-question-text').innerText = currentTrainerQuestion.q;
+    
     const input = document.getElementById('quiz-user-input');
     input.value = ""; input.disabled = false; input.classList.remove('input-correct', 'input-incorrect');
     document.getElementById('main-quiz-card').classList.remove('state-correct', 'state-incorrect');
     document.getElementById('quiz-feedback-box').style.display = 'none';
-    document.getElementById('quiz-sub-action').style.display = 'block'; document.getElementById('quiz-next-action').style.display = 'none';
-}
-function checkTrainerAnswer() {
-    if (!currentTrainerQuestion) return;
-    const input = document.getElementById('quiz-user-input'); const fb = document.getElementById('quiz-feedback-box');
-    const val = input.value.trim().toLowerCase().replace(/\s+/g, ''); if (!val) return;
-    input.disabled = true;
-    if (val === currentTrainerQuestion.a.toLowerCase().replace(/\s+/g, '')) {
-        document.getElementById('main-quiz-card').classList.add('state-correct'); input.classList.add('input-correct');
-        fb.className = "quiz-feedback correct"; fb.innerHTML = "✓ Верно!";
-    } else {
-        document.getElementById('main-quiz-card').classList.add('state-incorrect'); input.classList.add('input-incorrect');
-        fb.className = "quiz-feedback incorrect"; fb.innerHTML = `✕ Ошибка. Правильный ответ: <u>${currentTrainerQuestion.a.toUpperCase()}</u>`;
-    }
-    fb.style.display = "block"; document.getElementById('quiz-sub-action').style.display = 'none'; document.getElementById('quiz-next-action').style.display = 'block';
+    document.getElementById('quiz-sub-action').style.display = 'block';
+    document.getElementById('quiz-next-action').style.display = 'none';
 }
 
-// УЧЕБНИК
+function checkTrainerAnswer() {
+    if (!currentTrainerQuestion) return;
+    const input = document.getElementById('quiz-user-input');
+    const fb = document.getElementById('quiz-feedback-box');
+    const val = input.value.trim().toLowerCase().replace(/\s+/g, '');
+    if (!val) return;
+
+    input.disabled = true;
+    const cleanCorrectAnswer = currentTrainerQuestion.a.toLowerCase().replace(/\s+/g, '');
+
+    if (val === cleanCorrectAnswer) {
+        document.getElementById('main-quiz-card').classList.add('state-correct');
+        input.classList.add('input-correct');
+        fb.className = "quiz-feedback correct"; fb.innerHTML = "✓ Абсолютно верно! Ответ принят системой.";
+    } else {
+        document.getElementById('main-quiz-card').classList.add('state-incorrect');
+        input.classList.add('input-incorrect');
+        fb.className = "quiz-feedback incorrect"; fb.innerHTML = `✕ Ошибка. Ответ по критериям КИМ: <u>${currentTrainerQuestion.a.toUpperCase()}</u>`;
+    }
+    fb.style.display = "block";
+    document.getElementById('quiz-sub-action').style.display = 'none';
+    document.getElementById('quiz-next-action').style.display = 'block';
+}
+
+
+// 5. ПОДГРУЗКА УЧЕБНИКА (THEORY.JSON)
 function openTheoryModal(sect, num) {
     const key = sect + '_' + num;
     fetch('theory.json')
@@ -191,7 +243,7 @@ function openTheoryModal(sect, num) {
 }
 function closeTheoryModal() { document.getElementById('theoryModal').style.display = 'none'; }
 
-// ОТРИСОВКА СЕТКИ И СТАРТ
+// СЕТКА ГЕНЕРАЦИИ СТАРТА
 function runMainPlatformRender() {
     const generateRowsHTML = (tier, startIdx) => {
         let rows = [];
