@@ -1,8 +1,8 @@
 // ========================================================
-//  ГЛОБАЛЬНЫЙ АВТОНОМНЫЙ ДВИЖОК ПЛАТФОРМЫ (ВЕРСИЯ 5.1)
+//  ГЛОБАЛЬНЫЙ АВТОНОМНЫЙ ДВИЖОК ПЛАТФОРМЫ (ВЕРСИЯ 5.5)
 // ========================================================
 
-// 1. ПОЛНАЯ БАЗА ДАННЫХ ВАРИАНТОВ ДЛЯ СИМУЛЯТОРА КИМ
+// 1. ПОЛНАЯ БАЗА ДАННЫХ ВАРИАНТОВ ДЛЯ СИМУЛЯТОРА КИМ С ЛОКАЛЬНЫМИ КАРТИНКАМИ
 window.examVariantsDatabase = {
     "easy": {
         1: {
@@ -15,8 +15,8 @@ window.examVariantsDatabase = {
                 { id: 5, num: "Задание 5 (Персоналии)", text: "Установите соответствие между событиями и участниками:\n\nА) Ледовое побоище, Б) Штурм Измаила, В) Смоленская война, Г) Оборона дома Павлова\n\nУчастники: 1) Александр Невский, 2) А.В. Суворов, 3) М.Б. Шеин, 4) Я.Ф. Павлов, 5) М.И. Кутузов.\n\nВведите 4 цифры (АБВГ):", a: "1234" },
                 { id: 6, num: "Задание 6 (Источник)", text: "Прочтите текст: «Повелел князь Владимир опрокинуть идолы — одни порубить, другие сжечь... На следующий день вышел Владимир с попами на Днепр...». Какое событие описывается в тексте? Введите ответ в два слова:", a: "крещениеруси" },
                 { id: 7, num: "Задание 7 (Культура)", text: "Установите соответствие между памятниками и характеристиками:\nА) Храм Покрова на Нерли, Б) «Слово о полку Игореве», В) Храм Василия Блаженного, Г) Икона «Троица»\n\nХарактеристики: 1) В честь взятия Казани в XVI в., 2) Автор — Андрей Рублев, 3) Белокаменное зодчество XII в., 4) Посвящено походу на половцев.\n\nВведите 4 цифры (АБВГ):", a: "3412" },
-                { id: 8, num: "Задание 8 (ВОВ)", text: "Заполните пропуск: «Транспортная магистраль, связывавшая блокадный Ленинград со страной по льду Ладожского озера, называлась Дорога ___________».", a: "жизни" },
-                { id: 9, num: "Задание 9 (Карта — Личность)", text: "<div class='textbook-map-wrapper'><img class='textbook-map-img' src='https://upload.wikimedia.org/wikipedia/commons/e/e2/Razin_map.jpg'><div class='textbook-map-caption'>Карта КИМ к заданиям 9-12</div></div>Назовите предводителя восстания XVII века, изображенного на схеме:", a: "степанразин" },
+                { id: 8, num: "Задание 8 (ВОВ)", text: "<div style='text-align:center; margin:15px 0;'><img src='images/road_of_life.jpg' style='max-width:300px; border-radius:8px;'><br><b>Советская открытка (1943 г.)</b></div>Заполните пропуск в предложении: «Транспортная магистраль, связывавшая блокадный Ленинград со страной по льду Ладожского озера, называлась Дорога ___________».", a: "жизни" },
+                { id: 9, num: "Задание 9 (Карта — Личность)", text: "<div class='textbook-map-wrapper'><img class='textbook-map-img' src='images/razin.jpg'><div class='textbook-map-caption'>Карта КИМ к заданиям 9-12</div></div>Назовите предводителя восстания XVII века, изображенного на схеме:", a: "степанразин" },
                 { id: 10, num: "Задание 10 (Карта — Город)", text: "Укажите название города на Волге под цифрой '2', осада которого стала финалом восстания.", a: "симбирск" },
                 { id: 11, num: "Задание 11 (Карта — Гидроним)", text: "Назовите реку, в районе которой началось движение восставших казаков.", a: "дон" },
                 { id: 12, num: "Задание 12 (Карта — Суждения)", text: "Какие суждения верны?\n5) Царские войска нанесли поражение восставшим под Симбирском.\n6) Правителем России в этот период был Алексей Михайлович.\nВведите цифры без пробелов:", a: "56" }
@@ -53,16 +53,23 @@ window.examVariantsDatabase = {
     }
 };
 
+// Генераторы-дубликаторы вариантов (15 штук в сетке)
 for (let v = 2; v <= 5; v++) { window.examVariantsDatabase.easy[v] = { title: `Вариант №${v} (Базовый уровень)`, part1: [...window.examVariantsDatabase.easy[1].part1], part2: [...window.examVariantsDatabase.easy[1].part2] }; }
 for (let v = 7; v <= 10; v++) { window.examVariantsDatabase.medium[v] = { title: `Вариант №${v} (Профильный уровень)`, part1: [...window.examVariantsDatabase.medium[6].part1], part2: [...window.examVariantsDatabase.medium[6].part2] }; }
 for (let v = 12; v <= 15; v++) { window.examVariantsDatabase.hard[v] = { title: `Вариант №${v} (Олимпиадный уровень)`, part1: [...window.examVariantsDatabase.hard[11].part1], part2: [...window.examVariantsDatabase.hard[11].part2] }; }
 
 const russiaParagraphsList = ["Восточные славяне и их соседи (VI–IX вв.)", "Формирование Древнерусского государства. Первые Рюриковичи", "Владимир Святославич. Крещение Руси", "Расцвет Руси при Ярославе Мудром. «Русская Правда»", "Русь при Владимире Мономахе", "Главные центры раздробленности", "Культура и быт Древней Руси", "Монгольское завоевание и ордынское владычество", "Экспансия с Запада. Александр Невский", "Возвышение Москвы. Куликовская битва", "Создание единого Русского государства при Иване III", "Иван IV Грозный: реформы Избранной рады и Опричнина", "Культура Руси в XIV–XVI вв.", "Смутное время в России: причины, этапы, последствия", "Россия при первых Романовых. Бунташный век", "Церковный раскол в XVII в.", "Экономическое развитие России в XVII в. Освоение Сибири", "Эпоха Петра I: Северная война и создание империи", "Эпоха дворцовых переворотов", "Екатерина II и «просвещённый абсолютизм»", "Правление Павла I. Культура в XVIII в.", "Россия в первой половине XIX в. Александр I", "Движение декабристов: тайные общества и восстание", "Правление Николая I: консерватизм", "Александр II и Великие реформы 1860–1870-х гг.", "Общественные движения во второй половине XIX в.", "Правление Александра III: политика контрреформ", "Культура, наука и искусство России в XIX в.", "Россия на рубеже XIX–XX вв. Николай II", "Россия в Первой мировой войне. Кризис власти", "Гражданская война в России", "Образование СССР. Сталинская модернизация", "Великая Отечественная война (1941–1945 гг.)", "СССР во второй половине ХХ века", "Распад СССР. Создание РФ. Россия на рубеже ХХ–ХХI вв."];
-const worldShortNamesList = {1: "Первобытное общество", 2: "Древний Египет", 3: "Древняя Греция", 4: "Древний Рим", 5: "Падение Римской империи", 6: "Великое переселение народов", 7: "Византийская империя", 8: "Возникновение ислама", 9: "Империя Карла Великого", 10: "Средневековый город", 11: "Католическая церковь и Крестовые походы", 12: "Столетняя война", 13: "Священная Римская империя", 14: "Османская экспансия", 15: "Культура Средневековья", 16: "Великие географические открытия", 17: "Эпоха Возрождения", 18: "Реформация. Мартин Лютер", 19: "Религиозные войны во Франции", 20: "Нидерландская revolution", 21: "Английская буржуазная революция", 22: "Тридцатилетняя война", 23: "Абсолютизм во Франции", 24: "Эпоха Просвещения", 25: "Война за независимость и США", 26: "Великая французская революция", 27: "Наполеоновские войны", 28: "Промышленный переворот", 29: "Революции 1848 г.", 30: "Объединение Германии и Италии", 31: "Гражданская война в США", 32: "Колониальный раздел Азии", 33: "Китай в XIX в. Опиумные войны", 34: "Модернизация Японии. Реставрация Мэйдзи", 35: "Становление империализма", 36: "Блоки Первой мировой войны", 37: "Ход Первой мировой войны", 38: "Версальско-Вашингтонская система", 39: "Великая депрессия 1929-1933 гг.", 40: "Нацизм в Германии и Фашизм в Италии", 41: "Гражданская война в Испании", 42: "Мюнхенский сговор и начало Второй мировой", 43: "Ход Второй мировой войны", 44: "Конференции «Большой тройки»", 45: "Холодная война: НАТО и ОВД", 46: "Карибский кризис и Корейская война", 47: "Процесс деколонизации", 48: "Страны Запада во второй половине ХХ века", 49: "Крах соцлагеря в Европе", 50: "Глобализация и вызовы XXI века"};
+const worldShortNamesList = {1: "Первобытное общество", 2: "Древний Египет", 3: "Древняя Греция", 4: "Древний Рим", 5: "Падение Римской империи", 6: "Великое переселение народов", 7: "Византийская империя", 8: "Возникновение ислама", 9: "Империя Карла Великого", 10: "Средневековый город", 11: "Католическая церковь и Крестовые походы", 12: "Столетняя война", 13: "Священная Римская империя", 14: "Османская экспансия", 15: "Культура Средневековья", 16: "Великие географические открытия", 17: "Эпоха Возрождения", 18: "Реформация. Мартин Лютер", 19: "Религиозные войны во Франции", 20: "Нидерландская революция", 21: "Английская буржуазная революция", 22: "Тридцатилетняя война", 23: "Абсолютизм во Франции", 24: "Эпоха Просвещения", 25: "Война за независимость и США", 26: "Великая французская революция", 27: "Наполеоновские войны", 28: "Промышленный переворот", 29: "Революции 1848 г.", 30: "Объединение Германии и Италии", 31: "Гражданская война в США", 32: "Колониальный раздел Азии", 33: "Китай в XIX в. Опиумные войны", 34: "Модернизация Японии. Реставрация Мэйдзи", 35: "Становление империализма", 36: "Блоки Первой мировой войны", 37: "Ход Первой мировой войны", 38: "Версальско-Вашингтонская система", 39: "Великая депрессия 1929-1933 гг.", 40: "Нацизм в Германии и Фашизм в Италии", 41: "Гражданская война в Испании", 42: "Мюнхенский сговор и начало Второй мировой", 43: "Ход Второй мировой войны", 44: "Конференции «Большой тройки»", 45: "Холодная война: НАТО и ОВД", 46: "Карибский кризис и Корейская война", 47: "Процесс деколонизации", 48: "Страны Запада во второй половине ХХ века", 49: "Крах соцлагеря в Европе", 50: "Глобализация и вызовы XXI века"};
 
-let currentActiveExamType = "ege"; 
-let currentActiveKIM = null;
-let globalLoadedVariants = null; 
+window.trainerThemesList = {
+    rus: [{ key: "rus_all", name: "Все разделы кодификатора ФИПИ" }],
+    world: [{ key: "world_all", name: "Все разделы кодификатора ФИПИ" }]
+};
+
+let currentTrainerSection = "russia"; 
+let currentTrainerDiff = "easy";
+let currentTrainerQuestion = null;
+let globalLoadedQuestions = null; 
 
 // ДВИЖОК НАВИГАЦИИ ПЛАТФОРМЫ
 function switchPanel(panelId, btn) {
@@ -97,48 +104,36 @@ function exitExamToMenu() {
     document.getElementById(btnId).classList.add('active');
 }
 
-// СИМУЛЯТОР СДАЧИ КИМ
+// РЕНДЕР ОНЛАЙН СДАЧИ КИМ
 function startExamKIMSimulation(tier, variantNum) {
-    const key = `${currentActiveExamType}_${tier}_${variantNum}`;
-    
-    const runRender = (dataBlock) => {
-        currentActiveKIM = dataBlock;
-        document.querySelectorAll('.edu-panel').forEach(p => p.style.display = 'none');
-        document.getElementById('platform-main-nav').style.display = 'none';
-        document.getElementById('exam-simulation-panel').style.display = 'block';
-        document.getElementById('score-result-banner').style.display = 'none';
-        document.getElementById('exam-title-display').innerHTML = `<span>${dataBlock.title}</span> <button class='btn-finish-exam' style='background:var(--primary-light); margin-left:15px;' onclick='printCurrentKIM()'><i class='fa-solid fa-print'></i> Печать КИМ</button>`;
+    const dataBlock = window.examVariantsDatabase[tier]?.[variantNum];
+    if (!dataBlock) return;
+    currentActiveKIM = dataBlock;
 
-        document.getElementById('kim-part1-container').innerHTML = dataBlock.part1.map(q => `
-            <div class="task-card-kim" id="kim-card-q${q.id}">
-                <div style="font-weight:800; color:var(--primary); margin-bottom:10px;">${q.num}</div>
-                <div class="quiz-question">${q.text}</div>
-                <input type="text" class="exam-input-kim" id="kim-input-ans-${q.id}" placeholder="Ответ...">
-                <div class="criteria-box" id="kim-crit-block-${q.id}"></div>
-            </div>
-        `).join('');
+    document.querySelectorAll('.edu-panel').forEach(p => p.style.display = 'none');
+    document.getElementById('platform-main-nav').style.display = 'none';
+    document.getElementById('exam-simulation-panel').style.display = 'block';
+    document.getElementById('score-result-banner').style.display = 'none';
+    document.getElementById('exam-title-display').innerHTML = `<span>${dataBlock.title}</span> <button class='btn-finish-exam' style='background:var(--primary-light); margin-left:15px;' onclick='printCurrentKIM()'><i class='fa-solid fa-print'></i> Печать КИМ</button>`;
 
-        document.getElementById('kim-part2-container').innerHTML = dataBlock.part2.map(q => `
-            <div class="task-card-kim" id="kim-card-q${q.id}">
-                <div style="font-weight:800; color:var(--primary); margin-bottom:10px;">${q.num}</div>
-                <div class="quiz-question">${q.text}</div>
-                <textarea class="exam-textarea-kim" id="kim-textarea-ans-${q.id}" placeholder="Ваш ответ..."></textarea>
-                <div class="criteria-box" id="kim-crit-block-${q.id}"></div>
-            </div>
-        `).join('');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    document.getElementById('kim-part1-container').innerHTML = dataBlock.part1.map(q => `
+        <div class="task-card-kim" id="kim-card-q${q.id}">
+            <div style="font-weight:800; color:var(--primary); margin-bottom:10px;">${q.num}</div>
+            <div class="quiz-question">${q.text}</div>
+            <input type="text" class="exam-input-kim" id="kim-input-ans-${q.id}" placeholder="Ответ...">
+            <div class="criteria-box" id="kim-crit-block-${q.id}"></div>
+        </div>
+    `).join('');
 
-    if (!globalLoadedVariants) {
-        fetch('variants.json')
-            .then(res => res.json())
-            .then(data => {
-                globalLoadedVariants = data;
-                runRender(data[key] || data[`ege_easy_1`]);
-            }).catch(() => alert('Ошибка чтения файла КИМ variants.json'));
-    } else {
-        runRender(globalLoadedVariants[key] || globalLoadedVariants[`ege_easy_1`]);
-    }
+    document.getElementById('kim-part2-container').innerHTML = dataBlock.part2.map(q => `
+        <div class="task-card-kim" id="kim-card-q${q.id}">
+            <div style="font-weight:800; color:var(--primary); margin-bottom:10px;">${q.num}</div>
+            <div class="quiz-question">${q.text}</div>
+            <textarea class="exam-textarea-kim" id="kim-textarea-ans-${q.id}" placeholder="Ваш ответ..."></textarea>
+            <div class="criteria-box" id="kim-crit-block-${q.id}"></div>
+        </div>
+    `).join('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function finishExamSimulation() {
@@ -179,13 +174,8 @@ function printCurrentKIM() { window.print(); }
 
 
 // ========================================================
-// 4. ПОЛНОСТЬЮ АВТОНОМНЫЙ ОНЛАЙН-ТРЕНАЖЁР (БЕЗ ЗАВИСИМОСТИ ОТ FETCH)
+// 4. ПОЛНОСТЬЮ АВТОНОМНЫЙ ОНЛАЙН-ТРЕНАЖЁР
 // ========================================================
-let currentTrainerSection = "russia"; 
-let currentTrainerDiff = "easy";
-let currentTrainerQuestion = null;
-let globalLoadedQuestions = null; 
-
 function selectTrainerSection(sect) {
     document.querySelectorAll('#sec-russia-btn, #sec-world-btn').forEach(b => b.classList.remove('selected'));
     currentTrainerSection = sect;
@@ -201,7 +191,7 @@ function selectTrainerDifficulty(diff, el) {
 }
 
 function initTrainerQuiz() {
-    // Вшиваем вопросы прямо в код скрипта. Теперь они подгрузятся мгновенно!
+    // Вшиваем вопросы прямо в код, убирая уязвимости fetch-методов
     globalLoadedQuestions = {
         "russia": {
             "easy": [
@@ -224,7 +214,7 @@ function initTrainerQuiz() {
                 { "q": "В каком году была открыта Америка экспедицией Христофора Колумба?", "a": "1492" }
             ],
             "medium": [
-                { "q": "В каком году произошла Великая французская буржуазная революция?", "a": "1789" },
+                { "q": "В каком году произошла Великая французская буржуазная运行 революция?", "a": "1789" },
                 { "q": "Как в истории Нового времени назывался масштабный переход от ручного труда к машинному, начавшийся в Англии во второй половине XVIII века?", "a": "промышленный переворот" }
             ],
             "hard": [
@@ -248,7 +238,7 @@ function renderSingleQuestion() {
         return;
     }
     
-    // Делаем карточку вопроса видимой на экране!
+    // Принудительно открываем элемент вопроса (убираем display: none)
     if (quizBlock) quizBlock.style.display = "block";
     
     const randomIndex = Math.floor(Math.random() * pool.length);
