@@ -1,4 +1,66 @@
-<div id="trainer-panel" class="edu-panel active">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Академия Истории — Интерактивная платформа</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="edu-platform">
+    <div class="edu-header">
+        <h1>Академия Истории</h1>
+        <div class="edu-subtitle">Единая интерактивная система подготовки к ЕГЭ и ОГЭ</div>
+    </div>
+
+    <div class="edu-nav" id="platform-main-nav">
+        <button class="edu-tab-btn active" id="nav-btn-ege" onclick="switchPanel('ege-panel', this)"><i class="fa-solid fa-graduation-cap"></i> Варианты ЕГЭ</button>
+        <button class="edu-tab-btn" id="nav-btn-oge" onclick="switchPanel('oge-panel', this)"><i class="fa-solid fa-book"></i> Варианты ОГЭ</button>
+        <button class="edu-tab-btn" onclick="switchPanel('trainer-panel', this)"><i class="fa-solid fa-dumbbell"></i> Тренажёр</button>
+        <button class="edu-tab-btn" onclick="switchPanel('theory-panel', this)"><i class="fa-solid fa-scroll"></i> База Теории</button>
+    </div>
+
+    <div id="ege-panel" class="edu-panel active">
+        <div class="tier-grid">
+            <div class="tier-card easy"><span class="tier-badge">ЕГЭ База</span><h3 class="tier-title">Низкая сложность</h3><div id="ege-easy-list"></div></div>
+            <div class="tier-card medium"><span class="tier-badge">ЕГЭ Профи</span><h3 class="tier-title">Средняя сложность</h3><div id="ege-medium-list"></div></div>
+            <div class="tier-card hard"><span class="tier-badge">ЕГЭ Эксперт</span><h3 class="tier-title">Высокая сложность</h3><div id="ege-hard-list"></div></div>
+        </div>
+    </div>
+
+    <div id="oge-panel" class="edu-panel">
+        <div class="tier-grid">
+            <div class="tier-card easy"><span class="tier-badge">ОГЭ База</span><h3 class="tier-title">Низкая сложность</h3><div id="oge-easy-list"></div></div>
+            <div class="tier-card medium"><span class="tier-badge">ОГЭ Профи</span><h3 class="tier-title">Средняя сложность</h3><div id="oge-medium-list"></div></div>
+            <div class="tier-card hard"><span class="tier-badge">ОГЭ Эксперт</span><h3 class="tier-title">Высокая сложность</h3><div id="oge-hard-list"></div></div>
+        </div>
+    </div>
+
+    <div id="exam-simulation-panel" class="exam-container-layout">
+        <div class="score-banner" id="score-result-banner">
+            <h2>Экзаменационная работа завершена!</h2>
+            <p>Ваш результат за тестовую Часть 1 (задания 1–12):</p>
+            <div class="score-num"><span id="user-score-val">0</span> / 12 баллов</div>
+            <button class="btn-finish-exam" style="background:#fff; color:var(--primary);" onclick="exitExamToMenu()">В главное меню</button>
+        </div>
+        <div class="exam-sticky-bar">
+            <div style="font-weight: 800; font-size: 16px; color: var(--primary);" id="exam-title-display">КИМ</div>
+            <div class="timer-box"><i class="fa-solid fa-clock"></i> <span>Интерактивный режим</span></div>
+            <div style="display:flex; gap:10px;">
+                <button class="btn-finish-exam" style="background:var(--success);" onclick="finishExamSimulation()">Проверить работу</button>
+                <button class="btn-finish-exam" style="background:var(--danger);" onclick="exitExamToMenu()">Выйти</button>
+            </div>
+        </div>
+        <div class="part-title">Часть 1 (Автоматическая проверка)</div>
+        <div id="kim-part1-container"></div>
+        <div class="part-title">Часть 2 (Критерии ФИПИ)</div>
+        <div id="kim-part2-container"></div>
+    </div>
+
+    <div id="trainer-panel" class="edu-panel">
         <div class="trainer-layout">
             <div class="trainer-steps">
                 <div>
@@ -10,8 +72,7 @@
                 </div>
                 <div>
                     <div class="step-title"><i class="fa-solid fa-clock"></i> Шаг 2: Исторический период</div>
-                    <div class="selector-grid" id="trainer-themes-container">
-                        </div>
+                    <div class="selector-grid" id="trainer-themes-container"></div>
                 </div>
                 <div>
                     <div class="step-title"><i class="fa-solid fa-layer-group"></i> Шаг 3: Уровень сложности</div>
@@ -26,14 +87,38 @@
             <div class="quiz-container" id="quiz-block">
                 <div class="quiz-card" id="main-quiz-card">
                     <div style="font-weight:800; color:var(--accent); margin-bottom:8px;" id="quiz-meta-info">Загрузка...</div>
-                    <div class="quiz-question" id="quiz-question-text">Выберите период и сложность для старта...</div>
+                    <div class="quiz-question" id="quiz-question-text">Выберите параметры для старта...</div>
                     <div class="quiz-actions">
                         <input type="text" class="quiz-input" id="quiz-user-input" placeholder="Введите ваш ответ...">
                         <button class="quiz-submit-btn" id="quiz-sub-action" onclick="checkTrainerAnswer()">Ответить</button>
-                        <button class="quiz-next-btn" id="quiz-next-action" onclick="renderSingleQuestion()">Следующий вопрос <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="quiz-next-btn" id="quiz-next-action" onclick="renderSingleQuestion()">Следующий <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                     <div class="quiz-feedback" id="quiz-feedback-box"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="theory-panel" class="edu-panel">
+        <div class="theory-tabs-container">
+            <button class="theory-sub-btn active" id="theory-btn-rus" onclick="switchTheoryCategory('russia-theory', this)"><i class="fa-solid fa-shield-halved"></i> История России (35 тем)</button>
+            <button class="theory-sub-btn" id="theory-btn-world" onclick="switchTheoryCategory('world-theory', this)"><i class="fa-solid fa-earth-americas"></i> Всеобщая история (50 тем)</button>
+        </div>
+        <div id="russia-theory" class="theory-list-panel active"><div class="theory-grid-layout" id="russia-paragraphs-container"></div></div>
+        <div id="world-theory" class="theory-list-panel"><div class="theory-grid-layout" id="world-paragraphs-container"></div></div>
+    </div>
+</div>
+
+<div class="theory-modal-overlay" id="theoryModal" onclick="if(event.target===this) closeTheoryModal()">
+    <div class="theory-modal-card">
+        <div class="modal-header-box">
+            <h3 id="modalTitle">Параграф</h3>
+            <button class="modal-close-btn" onclick="closeTheoryModal()">&times;</button>
+        </div>
+        <div class="modal-body-content" id="modalBody"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
