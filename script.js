@@ -1,6 +1,8 @@
 // ========================================================
-// ПОЛНАЯ БАЗА ДАННЫХ ЧАСТИ 2 ДЛЯ ВСЕХ ВАРИАНТОВ (1-15)
+//  ГЛОБАЛЬНЫЙ ДВИЖОК АКАДЕМИИ ИСТОРИИ (ВЕРСИЯ 4.0 — ФИНАЛ)
 // ========================================================
+
+// 1. БАЗА ДАННЫХ ДЛЯ 15 ВАРИАНТОВ КИМ СТРОГО ПО СТРУКТУРЕ ФИПИ (ЧАСТЬ 1 И ЧАСТЬ 2)
 window.examVariantsDatabase = {
     // ЛЕГКИЙ УРОВЕНЬ: Варианты 1-5 (Направлены на 50-60 баллов)
     "easy": {
@@ -59,7 +61,7 @@ window.examVariantsDatabase = {
                 { id: 16, num: "Задание 16 (Зодчество)", text: "Назовите автора (архитектора) Зимнего дворца в Санкт-Петербурге, возведенного в ту же эпоху (XVIII в.).", c: "🔑 <b>Критерии ФИПИ (Задание 16):</b> <b>Архитектор:</b> Франческо Бартоломео Растрелли (стиль елизаветинское барокко)." },
                 { id: 17, num: "Задание 17 (ВОВ)", text: "Из мемуаров: «Группа армий \"Центр\" была полностью рассечена, моторизованные корпуса зажали противника в клещи под Минском...». Назовите кодовое имя советской операции 1944 года и месяц ее завершения.", c: "🔑 <b>Критерии ФИПИ (Задание 17):</b> 1) Операция «Багратион». 2) Месяц: Август 1944 г." },
                 { id: 18, num: "Задание 18 (Причины)", text: "Назовите три главные причины (предпосылки) победы Московского княжества в борьбе за статус центра объединения русских земель в XIV веке.", c: "🔑 <b>Критерии ФИПИ (Задание 18):</b><br>1) Перенос кафедры митрополита Русской православной церкви из Владимира в Москву (идеологический центр).<br>2) Взвешенная и дальновидная дипломатическая политика князей (Иван Калита получил право сбора дани, прекратив ордынские набеги).<br>3) Выгодное географическое положение (защищенность другими уделами от внезапных нападений)." },
-                { id: 19, num: "Задание 19 (Исторический термин)", text: "Раскройте смысл понятия «Вира». Приведите один исторический факт, связывающий этот термин с развитием русского права.", c: "🔑 <b>Критерии ФИПИ (Задание 19):</b><br>1) <b>Смысл:</b> Денежный штраф, взимавшийся по Русской Правде в пользу князя за убийство свободного человека.<br>2) <b>Fact:</b> Иданием Правды Ярославичей во второй половине XI века кровная месть была полностью отменена и окончательно заменена выплатой виры." },
+                { id: 19, num: "Задание 19 (Исторический термин)", text: "Раскройте смысл понятия «Вира». Приведите один исторический факт, связывающий этот термин с развитием русского права.", c: "🔑 <b>Критерии ФИПИ (Задание 19):</b><br>1) <b>Смысл:</b> Денежный штраф, взимавшийся по Русской Правде в пользу князя за убийство свободного человека.<br>2) <b>Факт:</b> Изданием Правды Ярославичей во второй половине XI века кровная месть была полностью отменена и окончательно заменена выплатой виры." },
                 { id: 20, num: "Задание 20 (Сравнение)", text: "Сформулируйте тезис о сходстве внешнеполитических итогов деятельности Петра I и Екатерины II на западном направлении. Приведите два обоснования.", c: "🔑 <b>Критерии ФИПИ (Задание 20):</b><br>• <b>Тезис:</b> Внешняя политика обоих императоров на западе привела к значительному расширению имперских границ и завоеванию стратегических выходов к морям.<br>• <b>Обоснование:</b> Петр I по Ништадтскому миру завоевал выход к Балтийскому морю (Лифляндия, Эстляндия), а Екатерина II в результате русско-турецких войн закрепила за Россией Причерноморье и Крым." },
                 { id: 21, num: "Задание 21 (Всемирная история)", text: "Объясните, как Реформация XVI века в Европе и религиозные споры на Руси в XVII веке повлияли на внутреннюю стабильность соответствующих государств. Приведите аргументы для Священной Римской империи и России.", c: "🔑 <b>Критерии ФИПИ (Задание 21):</b><br>1) <b>Для Германии:</b> Выступление Мартина Лютера в 1517 г. раскололо империю на протестантов и католиков, вызвав разрушительные Религиозные войны и крестьянские восстания.<br>2) <b>Для России:</b> Реформы патриарха Никона в 1653 г. вызвали Церковный раскол, породив феномен старообрядчества, массовые скиты и акты самосожжения, что ослабило авторитет церкви." }
             ]
@@ -74,12 +76,12 @@ window.examVariantsDatabase = {
                 { id: 1, num: "Задание 1 (Хронология)", text: "Установите соответствие между событиями и годами:\nА) Битва на реке Салнице\nБ) Медвежьегорская наступательная операция Карельского фронта\nВ) Заключение Деулинского перемирия\nГ) Заключение Нерчинского договора\n\nГоды: 1) 1111 г., 2) 1618 г., 3) 1689 г., 4) 1944 г., 5) 1410 г., 6) 1223 г.\n\nВведите 4 цифры подряд (АБВГ):", a: "1234" },
                 { id: 2, num: "Задание 2", text: "Расположите в хронологической последовательности события:\n1) Принятие Вестфальского мира\n2) Издание указа о «заповедных летах»\n3) Созыв Любечского съезда\n\nВведите 3 цифры:", a: "321" },
                 { id: 3, num: "Задание 3", text: "Установите соответствие между процессами и фактами юридического иммунитета:\nА) Закрепление сословных прав белого духовенства в Поздней империи\nБ) Политическая децентрализация Северо-Востока\nВ) Становление приказного строя\nГ) Оформление абсолютизма\n\nФакты: 1) Указ о единонаследии, 2) Ликвидация системы кормлений, 3) Учреждение Синода, 4) Любечский съезд.\n\nВведите цифры (АБВГ):", a: "3421" },
-                { id: 4, num: "Задание 4", text: "Заполните пропуски в таблице ФИПИ по удельным центрам:\nОбъекты: 1) Vladimir-на-Клязьме, 2) Искоростень.\nСобытия: 3) Перенос столицы Андреем Боголюбским, 4) Карательный поход Ольги.\nВремя: 5) X век, 6) XII век.\n\nВведите итоговую комбинацию из 6 цифр:", a: "136245" },
+                { id: 4, num: "Задание 4", text: "Заполните пропуски в таблице ФИПИ по удельным центрам:\nОбъекты: 1) Владимир-на-Клязьме, 2) Искоростень.\nСобытия: 3) Перенос столицы Андреем Боголюбским, 4) Карательный поход Ольги.\nВремя: 5) X век, 6) XII век.\n\nВведите итоговую комбинацию из 6 цифр:", a: "136245" },
                 { id: 5, num: "Задание 5", text: "Установите соответствие между событиями внешней политики и дипломатами:\nА) Андрусовское перемирие, Б) Столбовский мир, В) Kючук-Kайнарджийский мир, Г) Ништадтский мир\n\nУчастники: 1) А. Ордин-Нащокин, 2) Д. Пожарский, 3) П. Румянцев, 4) Я. Брюс.\n\nВведите 4 цифры (АБВГ):", a: "1234" },
                 { id: 6, num: "Задание 6 (Источник)", text: "Прочтите текст: «А се аз, князь великий Иван Васильевич, пожаловал есмь игумена... дал право суда над людьми удела...». Как назывался данный тип иммунитетных грамот на Руси?", a: "тарханнаяграмота" },
-                { id: 7, num: "Задание 7", text: "Установите соответствие между архитектурными шедеврами и стилями:\nА) Грановитая палата, Б) Церковь Вознесения в Коломенском, В) Дмитриевский собор, Г) Меншикова башня\n\nСтили: 1) Итальянский Ренессанс, 2) Шатровый стиль, 3) Белокаменное владимирское зодчество, 4) Петровское барокко.\n\nВведите цифры:", a: "1234" },
+                { id: 7, num: "Задание 7", text: "Установите соответствие между архитектурными шедеврами и стилями:\nА) Грановитая палата, Б) Церковь Вознесения в Коломенском, В) Дмитриевский собор, Г) Меншикова башня\n\nСтили: 1) Итальянский Ренессанс, 2) Шатровый стиль, 3) Белокаменное владимирское зодчество, 4)  барокко.\n\nВведите цифры:", a: "1234" },
                 { id: 8, num: "Задание 8", text: "Заполните пропуск: «В ходе Крымской операции весной __________ года советские войска штурмом взяли Сапун-гору и полностью освободили Севастополь». (Укажите год цифрами)", a: "1944" },
-                { id: 9, num: "Задание 9 (Kарта)", text: "<div class='textbook-map-wrapper'><img class='textbook-map-img' src='https://upload.wikimedia.org/wikipedia/commons/e/e2/Razin_map.jpg'><div class='textbook-map-caption'>Kарта КИМ</div></div>Назовите кодовое имя социальной группы, составившей военное ядро данного бунта:", a: "казачество" },
+                { id: 9, num: "Задание 9 (Карта)", text: "<div class='textbook-map-wrapper'><img class='textbook-map-img' src='https://upload.wikimedia.org/wikipedia/commons/e/e2/Razin_map.jpg'><div class='textbook-map-caption'>Карта КИМ</div></div>Назовите кодовое имя социальной группы, составившей военное ядро данного бунта:", a: "казачество" },
                 { id: 10, num: "Задание 10", text: "Укажите название Самарского городка, добровольно перешедшего на сторону повстанцев.", a: "самара" },
                 { id: 11, num: "Задание 11", text: "Назовите море, в бассейн которого восставшие совершили сплав «за зипунами».", a: "каспийское" },
                 { id: 12, num: "Задание 12", text: "Какие суждения верны? 5) Восстание подавлено воеводами Барятинского. 6) Бунт стал следствием Уложения 1649 г. Введите цифры:", a: "56" }
@@ -91,7 +93,7 @@ window.examVariantsDatabase = {
                 { id: 16, num: "Задание 16 (Сравнительное зодчество)", text: "Назовите архитектурный стиль (ноу-хау) данного памятника и укажите еще одно культовое сооружение XVI века, выполненное в этом же стиле.", c: "🔑 <b>Критерии ФИПИ (Задание 16):</b> 1) <b>Стиль:</b> Шатровый стиль. 2) <b>Памятник:</b> Храм Василия Блаженного (Покровский собор на Рву) в Москве." },
                 { id: 17, num: "Задание 17 (ВОВ — Высокая сложность)", text: "Из мемуаров Манштейна: «Танковый кулак генерала Гота завяз в оборонительных порядках русских... Сражение достигло апогея на Прохоровском поле...». Назовите стратегическую операцию вермахта, ход которой сорван советскими войсками, и маршала — координатора Ставки.", c: "🔑 <b>Критерии ФИПИ (Задание 17):</b> 1) Операция «Цитадель». 2) Маршал: А.М. Василевский или Г.K. Жуков." },
                 { id: 18, num: "Задание 18 (Сложные причинно-следственные связи)", text: "В 1682 году по указу царя Федора Алексеевича в России было полностью отменено местничество и сожжены разрядные книги. Укажите три любых последствия данной реформы для социально-политической модернизации государства.", c: "🔑 <b>Критерии ФИПИ (Задание 18):</b><br>1) Ликвидация зависимости продвижения по государственной и военной службе от знатности дворянского рода («породы»).<br>2) Ускорение процессов формирования новой бюрократической элиты и служебного продвижения талантливых, но менее родовитых дворян.<br>3) Создание кадровых и юридических предпосылок для радикальных петровских преобразований госаппарата и армии (введения Табели о рангах в 1722 г.)." },
-                { id: 19, num: "Задание 19 (Сложный олимпиадный термин)", text: "Раскройте исторический смысл понятия «Тарханная грамота». Приведите один факт, конкретизирующий ликвидацию данного института в Российском государстве.", c: "🔑 <b>Критерии ФИПИ (Задание 19):</b><br>1) <b>Смысл:</b> Документ, выдававшийся верховной княжеской/царской властью крупным землевладельцам (преимущественно монастырям), освобождавший их вотчины от уплаты государственных налогов и пошлин, а также даровавший судебный иммунитет.<br>2) <b>Факт:</b> Тарханные грамоты были полностью ликвидированы и запрещены Судебником 1550 года Избранной рады Ивана IV с целью централизации финансов и укрепления бюджета." },
+                { id: 19, num: "Задание 19 (Сложный олимпиадный термин)", text: "Раскройте исторический смысл понятия «Тарханная грамота». Приведите один факт, конкретизирующий ликвидацию данного института в Российском государстве.", c: "🔑 <b>Критерии ФИПИ (Задание 19):</b><br>1) <b>Смысл:</b> Документ, выдававшийся верховной княжеской/царской властью крупным землевладельцам (преимущественно монастырям), освобождавший их вотчины от уплаты государственных налогов и пошлин, а также даровавший судебный иммунитет.<br>2) <b>Факт:</b> Тaрханные грамоты были полностью ликвидированы и запрещены Судебником 1550 года Избранной рады Ивана IV с целью централизации финансов и укрепления бюджета." },
                 { id: 20, num: "Задание 20 (Сложное аналитическое сравнение)", text: "Запишите тезис, содержащий обобщенное суждение о различиях в характере государственного управления и опоры власти в периоды правления Ивана III Васильевича и Ивана IV Грозного. Приведите два исторических обоснования.", c: "🔑 <b>Критерии ФИПИ (Задание 20):</b><br>• <b>Тезис:</b> В отличие от Ивана III, опиравшегося на традиционную боярскую аристократию и систему компромиссов, система управления Ивана IV эволюционировала в сторону жесткого самодержавного деспотизма, террора и опоры на преданное служилое дворянство.<br>• <b>Обоснование:</b><br>1) При Иване III управление уездами шло через боярских наместников на основе кормлений, а Иван IV ликвидировал эту систему и разделил страну на Земщину и Опричнину, физически истребляя боярские роды.<br>2) При Иване III Боярская дума была ключевым соправителем великого князя, в то время как Иван IV учредил Земские соборы для привлечения служилого дворянства в противовес старой родовой боярской знати." },
                 { id: 21, num: "Задание 21 (Сложная всемирная история)", text: "Используя исторические знания, приведите развернутые аргументы в подтверждение точки зрения, что внешнеполитические события конца XVIII века (революционные потрясения во Франции) оказали прямое и мощное деструктивное влияние на внутреннюю общественно-политическую и духовную жизнь как во Франции, так и в Российской империи.", c: "🔑 <b>Критерии ФИПИ (Задание 21):</b><br>1) <b>Для России:</b> Начало Великой французской революции вызвало панику у Екатерины II. Опасаясь проникновения революционных идей, правительство развернуло реакционный курс: закрыло частные типографии, ввело жесточайшую цензуру, а просветитель А.Н. Радищев за книгу «Путешествие из Петербурга в Москву» был объявлен бунтовщиком и сослан на каторгу в Сибирь.<br>2) <b>Для Франции:</b> Внешнее военное вторжение антифранцузской коалиции европейских монархий и тяжелые поражения французской армии на начальном этапе радикализировали парижские массы. Это привело к росту недоверия к королю, штурму дворца Тюильри, полной ликвидации монархии, установлению якобинского террора и последующей казни Людовика XVI." }
             ]
@@ -99,7 +101,301 @@ window.examVariantsDatabase = {
     }
 };
 
-// АВТОГЕНЕРАТОРЫ-ДУБЛИКАТОРЫ ДЛЯ СЕТКИ ИЗ 15 ВАРИАНТОВ (С ЧАСТЬЮ 2)
+// Автогенераторы сетки вариантов (со 2 по 5, с 7 по 10 и с 12 по 15)
 for (let v = 2; v <= 5; v++) { window.examVariantsDatabase.easy[v] = { title: `Вариант №${v} (Базовый уровень)`, part1: [...window.examVariantsDatabase.easy[1].part1], part2: [...window.examVariantsDatabase.easy[1].part2] }; }
 for (let v = 7; v <= 10; v++) { window.examVariantsDatabase.medium[v] = { title: `Вариант №${v} (Профильный уровень)`, part1: [...window.examVariantsDatabase.medium[6].part1], part2: [...window.examVariantsDatabase.medium[6].part2] }; }
 for (let v = 12; v <= 15; v++) { window.examVariantsDatabase.hard[v] = { title: `Вариант №${v} (Олимпиадный уровень)`, part1: [...window.examVariantsDatabase.hard[11].part1], part2: [...window.examVariantsDatabase.hard[11].part2] }; }
+
+
+// 2. СПИСОК ТЕМ И ПАРАГРАФОВ ДЛЯ БАЗЫ ТЕОРИИ РОССИИ И ВСЕМИРКИ
+const russiaParagraphsList = ["Восточные славяне и их соседи (VI–IX вв.)", "Формирование Древнерусского государства. Первые Рюриковичи", "Владимир Святославич. Крещение Руси", "Расцвет Руси при Ярославе Мудром. «Русская Правда»", "Русь при Владимире Мономахе", "Главные центры раздробленности", "Культура и быт Древней Руси", "Монгольское завоевание и ордынское владычество", "Экспансия с Запада. Александр Невский", "Возвышение Москвы. Куликовская битва", "Создание единого Русского государства при Иване III", "Иван IV Грозный: реформы Избранной рады и Опричнина", "Культура Руси в XIV–XVI вв.", "Смутное время в России: причины, этапы, последствия", "Россия при первых Романовых. Бунташный век", "Церковный раскол в XVII в.", "Экономическое развитие России в XVII в. Освоение Сибири", "Эпоха Петра I: Северная война и создание империи", "Эпоха дворцовых переворотов", "Екатерина II и «просвещённый абсолютизм»", "Правление Павла I. Культура в XVIII в.", "Россия в первой половине XIX в. Александр I", "Движение декабристов: тайные общества и восстание", "Правление Николая I: консерватизм", "Александр II и Великие реформы 1860–1870-х гг.", "Общественные движения во второй половине XIX в.", "Правление Александра III: политика контрреформ", "Культура, наука и искусство России в XIX в.", "Россия на рубеже XIX–XX вв. Николай II", "Россия в Первой мировой войне. Кризис власти", "Гражданская война в России", "Образование СССР. Сталинская модернизация", "Великая Отечественная война (1941–1945 гг.)", "СССР во второй половине ХХ века", "Распад СССР. Создание РФ. Россия на рубеже ХХ–ХХI вв."];
+const worldShortNamesList = {1: "Первобытное общество", 2: "Древний Египет", 3: "Древняя Греция", 4: "Древний Рим", 5: "Падение Римской империи", 6: "Великое переселение народов", 7: "Византийская империя", 8: "Возникновение ислама", 9: "Империя Карла Великого", 10: "Средневековый город", 11: "Католическая церковь и Крестовые походы", 12: "Столетняя война", 13: "Священная Римская империя", 14: "Османская экспансия", 15: "Культура Средневековья", 16: "Великие географические открытия", 17: "Эпоха Возрождения", 18: "Реформация. Мартин Лютер", 19: "Религиозные войны во Франции", 20: "Нидерландская революция", 21: "Английская буржуазная революция", 22: "Тридцатилетняя война", 23: "Абсолютизм во Франции", 24: "Эпоха Просвещения", 25: "Война за независимость и США", 26: "Великая французская революция", 27: "Наполеоновские войны", 28: "Промышленный переворот", 29: "Революции 1848 г.", 30: "Объединение Германии и Италии", 31: "Гражданская война в США", 32: "Колониальный раздел Азии", 33: "Китай в XIX в. Опиумные войны", 34: "Модернизация Японии. Реставрация Мэйдзи", 35: "Становление империализма", 36: "Блоки Первой мировой войны", 37: "Ход Первой мировой войны", 38: "Версальско-Вашингтонская система", 39: "Великая депрессия 1929-1933 гг.", 40: "Нацизм в Германии и Фашизм в Италии", 41: "Гражданская война в Испании", 42: "Мюнхенский сговор и начало Второй мировой", 43: "Ход Второй мировой войны", 44: "Конференции «Большой тройки»", 45: "Холодная война: НАТО и ОВД", 46: "Карибский кризис и Корейская война", 47: "Процесс деколонизации", 48: "Страны Запада во второй половине ХХ века", 49: "Крах соцлагеря в Европе", 50: "Глобализация и вызовы XXI века"};
+
+window.trainerThemesList = {
+    rus: [{ key: "rus_all", name: "Все разделы кодификатора ФИПИ" }],
+    world: [{ key: "world_all", name: "Все разделы кодификатора ФИПИ" }]
+};
+
+
+// 3. АСИНХРОННЫЙ ДВИЖОК ОНЛАЙН-ТРЕНАЖЁРА (ЕГЭ / ОГЭ) ИЗ JSON-БАНКА QUESTIONS.JSON
+let currentTrainerExamType = "ege"; 
+let currentTrainerDiff = "easy";
+let currentTrainerQuestion = null;
+let globalLoadedQuestions = null; 
+
+function selectTrainerSection(type) {
+    document.querySelectorAll('#sec-rus-btn, #sec-world-btn').forEach(b => b.classList.remove('selected'));
+    
+    if (type === 'rus') {
+        currentTrainerExamType = "ege";
+        document.getElementById('sec-rus-btn').classList.add('selected');
+    } else {
+        currentTrainerExamType = "oge";
+        document.getElementById('sec-world-btn').classList.add('selected');
+    }
+    
+    const container = document.getElementById('trainer-themes-container');
+    if (container) {
+        container.innerHTML = `
+            <button class="selector-btn theme-btn selected" id="theme-btn-all">
+                <span>Все темы кодификатора ФИПИ (${currentTrainerExamType.toUpperCase()})</span>
+                <i class="fa-solid fa-check" style="color:var(--success)"></i>
+            </button>
+        `;
+    }
+    initTrainerQuiz();
+}
+
+function selectTrainerDifficulty(diff, el) {
+    currentTrainerDiff = diff;
+    document.querySelectorAll('#diff-easy-btn, #diff-medium-btn, #diff-hard-btn').forEach(b => b.classList.remove('selected'));
+    if (el) el.classList.add('selected');
+    initTrainerQuiz();
+}
+
+function initTrainerQuiz() {
+    if (!globalLoadedQuestions) {
+        fetch('questions.json')
+            .then(res => {
+                if (!res.ok) throw new Error('Ошибка чтения пула questions.json');
+                return res.json();
+            })
+            .then(data => {
+                globalLoadedQuestions = data;
+                renderSingleQuestion();
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('quiz-question-text').innerText = "Ошибка загрузки внешнего банка вопросов тренажера.";
+            });
+    } else {
+        renderSingleQuestion();
+    }
+}
+
+function renderSingleQuestion() {
+    if (!globalLoadedQuestions) return;
+    
+    const pool = globalLoadedQuestions[currentTrainerExamType]?.[currentTrainerDiff];
+    if (!pool || pool.length === 0) {
+        document.getElementById('quiz-question-text').innerText = "Данный раздел сложности вопросов пуст.";
+        return;
+    }
+    
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    currentTrainerQuestion = pool[randomIndex];
+    
+    document.getElementById('quiz-meta-info').innerText = `${currentTrainerExamType.toUpperCase()} • Спецификация ФИПИ • Сложность: ${currentTrainerDiff.toUpperCase()} • Вопросов в пуле: ${pool.length}`;
+    document.getElementById('quiz-question-text').innerText = currentTrainerQuestion.q;
+    
+    const input = document.getElementById('quiz-user-input');
+    input.value = "";
+    input.disabled = false;
+    input.classList.remove('input-correct', 'input-incorrect');
+    
+    document.getElementById('main-quiz-card').classList.remove('state-correct', 'state-incorrect');
+    document.getElementById('quiz-feedback-box').style.display = 'none';
+    document.getElementById('quiz-sub-action').style.display = 'block';
+    document.getElementById('quiz-next-action').style.display = 'none';
+    document.getElementById('quiz-block').style.display = 'block';
+}
+
+function checkTrainerAnswer() {
+    if (!currentTrainerQuestion) return;
+    const input = document.getElementById('quiz-user-input');
+    const fb = document.getElementById('quiz-feedback-box');
+    const val = input.value.trim().toLowerCase().replace(/\s+/g, '');
+    if (!val) return;
+
+    input.disabled = true;
+    const cleanCorrectAnswer = currentTrainerQuestion.a.toLowerCase().replace(/\s+/g, '');
+
+    if (val === cleanCorrectAnswer) {
+        document.getElementById('main-quiz-card').classList.add('state-correct');
+        input.classList.add('input-correct');
+        fb.className = "quiz-feedback correct";
+        fb.innerHTML = "✓ Абсолютно верно! Ответ зачтен автоматической системой КИМ.";
+    } else {
+        document.getElementById('main-quiz-card').classList.add('state-incorrect');
+        input.classList.add('input-incorrect');
+        fb.className = "quiz-feedback incorrect";
+        fb.innerHTML = `✕ Ошибка. Правильный ответ по кодификатору: <u>${currentTrainerQuestion.a.toUpperCase()}</u>`;
+    }
+    fb.style.display = "block";
+    document.getElementById('quiz-sub-action').style.display = 'none';
+    document.getElementById('quiz-next-action').style.display = 'block';
+}
+
+
+// 4. ДВИЖОК СИМУЛЯТОРА КИМ И СИСТЕМНОЙ ПЕЧАТИ
+let currentActiveKIM = null;
+
+function startExamKIMSimulation(tier, variantNum) {
+    const kimData = window.examVariantsDatabase[tier]?.[variantNum];
+    if (!kimData) return;
+    currentActiveKIM = kimData;
+
+    document.querySelectorAll('.edu-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('platform-main-nav').style.display = 'none';
+    
+    const simPanel = document.getElementById('exam-simulation-panel');
+    simPanel.style.display = 'block';
+    document.getElementById('score-result-banner').style.display = 'none';
+    
+    document.getElementById('exam-title-display').innerHTML = `
+        <span>${kimData.title}</span> 
+        <button class="btn-finish-exam" style="background:var(--primary-light); margin-left:15px;" onclick="printCurrentKIM()"><i class="fa-solid fa-print"></i> Скачать / Печать КИМ</button>
+    `;
+
+    document.getElementById('kim-part1-container').innerHTML = kimData.part1.map(q => `
+        <div class="task-card-kim" id="kim-card-q${q.id}">
+            <div style="font-weight:800; color:var(--primary); margin-bottom:10px;">${q.num}</div>
+            <div class="quiz-question">${q.text}</div>
+            <input type="text" class="exam-input-kim" id="kim-input-ans-${q.id}" placeholder="Ответ...">
+            <div class="criteria-box" id="kim-crit-block-${q.id}"></div>
+        </div>
+    `).join('');
+
+    document.getElementById('kim-part2-container').innerHTML = kimData.part2.map(q => `
+        <div class="task-card-kim" id="kim-card-q${q.id}">
+            <div style="font-weight:800; color:var(--primary); margin-bottom:10px;">${q.num}</div>
+            <div class="quiz-question">${q.text}</div>
+            <textarea class="exam-textarea-kim" id="kim-textarea-ans-${q.id}" placeholder="Ваш развернутый ответ для самопроверки..."></textarea>
+            <div class="criteria-box" id="kim-crit-block-${q.id}"></div>
+        </div>
+    `).join('');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function finishExamSimulation() {
+    if (!currentActiveKIM) return;
+    let part1Score = 0;
+
+    currentActiveKIM.part1.forEach(q => {
+        const input = document.getElementById(`kim-input-ans-${q.id}`);
+        const card = document.getElementById(`kim-card-q${q.id}`);
+        const crit = document.getElementById(`kim-crit-block-${q.id}`);
+        if (!input || !card || !crit) return;
+
+        if (input.value.trim().toLowerCase().replace(/\s+/g, '') === q.a.toLowerCase()) {
+            part1Score++;
+            card.className = "task-card-kim correct";
+            input.className = "exam-input-kim input-correct";
+        } else {
+            card.className = "task-card-kim incorrect";
+            input.className = "exam-input-kim input-incorrect";
+        }
+        crit.innerHTML = `<div class="criteria-title">🔑 Ответ КИМ:</div><b>${q.a.toUpperCase()}</b>`;
+        crit.style.display = "block";
+    });
+
+    currentActiveKIM.part2.forEach(q => {
+        const txt = document.getElementById(`kim-textarea-ans-${q.id}`);
+        const crit = document.getElementById(`kim-crit-block-${q.id}`);
+        if (txt) txt.disabled = true;
+        if (crit) {
+            crit.innerHTML = `${q.c}`;
+            crit.style.display = "block";
+        }
+    });
+
+    document.getElementById('user-score-val').innerText = part1Score;
+    document.getElementById('score-result-banner').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function printCurrentKIM() {
+    window.print();
+}
+
+
+// 5. АСИНХРОННЫЙ ДВИЖОК ПОДГРУЗКИ ТЕОРИИ ИЗ ВНЕШНЕГО JSON-ФАЙЛА THEORY.JSON
+function openTheoryModal(sect, num) {
+    const key = sect + '_' + num;
+    fetch('theory.json')
+        .then(res => {
+            if (!res.ok) throw new Error('Ошибка подгрузки theory.json');
+            return res.json();
+        })
+        .then(data => {
+            const topic = data[key];
+            const mTitle = document.getElementById('modalTitle');
+            const mBody = document.getElementById('modalBody');
+            const mOverlay = document.getElementById('theoryModal');
+
+            if (topic && mTitle && mBody && mOverlay) {
+                mTitle.innerHTML = `Параграф №${num}. ${topic.title}`;
+                mBody.innerHTML = topic.html;
+                mOverlay.style.display = 'flex';
+            } else {
+                mTitle.innerHTML = `Параграф №${num}`;
+                mBody.innerHTML = `<div style="background:#f8fafc; border-left:4px solid var(--primary-light); padding:20px; border-radius:8px;"><h4 style="margin:0 0 10px 0; color:var(--primary); font-weight:800;">📚 Конспект ФИПИ к теме №${num}</h4><p>Полный развернутый конспект готовится к публикации разработчиком.</p></div>`;
+                mOverlay.style.display = 'flex';
+            }
+        })
+        .catch(err => console.error('Критическая ошибка АПИ учебника:', err));
+}
+
+function closeTheoryModal() {
+    document.getElementById('theoryModal').style.display = 'none';
+}
+
+
+// 6. СЕТКА ОТРИСОВКИ КАРТОЧЕК ВАРИАНТОВ ПРИ СТАРТЕ СТРАНИЦЫ
+function runMainPlatformRender() {
+    const generateRowsHTML = (tier, startIdx) => {
+        let rows = [];
+        for (let i = 0; i < 5; i++) {
+            let currentNum = startIdx + i;
+            rows.push(`
+                <div class="variant-row" onclick="startExamKIMSimulation('${tier}', ${currentNum})">
+                    <span>Вариант №${currentNum}</span>
+                    <i class="fa-solid fa-play" style="color:var(--success); font-size:12px;"></i>
+                </div>
+            `);
+        }
+        return rows.join('');
+    };
+
+    const egeEasy = document.getElementById('ege-easy-list');
+    const egeMed = document.getElementById('ege-medium-list');
+    const egeHard = document.getElementById('ege-hard-list');
+
+    if (egeEasy) egeEasy.innerHTML = generateRowsHTML('easy', 1);
+    if (egeMed) egeMed.innerHTML = generateRowsHTML('medium', 6);
+    if (egeHard) egeHard.innerHTML = generateRowsHTML('hard', 11);
+
+    const ogeEasy = document.getElementById('oge-easy-list');
+    const ogeMed = document.getElementById('oge-medium-list');
+    const ogeHard = document.getElementById('oge-hard-list');
+
+    if (ogeEasy) ogeEasy.innerHTML = generateRowsHTML('easy', 1);
+    if (ogeMed) ogeMed.innerHTML = generateRowsHTML('medium', 6);
+    if (ogeHard) ogeHard.innerHTML = generateRowsHTML('hard', 11);
+
+    const rusContainer = document.getElementById('russia-paragraphs-container');
+    if (rusContainer) {
+        rusContainer.innerHTML = russiaParagraphsList.map((p, i) => `
+            <div class="paragraph-card" onclick="openTheoryModal('rus', ${i+1})">
+                <div class="paragraph-num">${i+1}</div><div class="paragraph-title">${p}</div>
+            </div>
+        `).join('');
+    }
+    
+    const worldContainer = document.getElementById('world-paragraphs-container');
+    if (worldContainer) {
+        const worldArray = Object.values(worldShortNamesList);
+        worldContainer.innerHTML = worldArray.map((p, i) => `
+            <div class="paragraph-card" onclick="openTheoryModal('world', ${i+1})">
+                <div class="paragraph-num">${i+1}</div><div class="paragraph-title">${p}</div>
+            </div>
+        `).join('');
+    }
+}
+
+// Запуск рендера
+document.addEventListener("DOMContentLoaded", () => {
+    runMainPlatformRender();
+    selectTrainerSection('rus');
+});
