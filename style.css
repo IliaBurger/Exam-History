@@ -78,13 +78,12 @@ body {
 .quiz-card.state-correct { border-left-color: var(--success); background: #f0fdf4; }
 .quiz-card.state-incorrect { border-left-color: var(--danger); background: #fef2f2; }
 
-/* ЧИТАБЕЛЬНЫЙ ТЕКСТ БЕЗ СЛИПАНИЯ */
 .quiz-question { 
     font-size: 16px; 
     font-weight: 600; 
     line-height: 1.7; 
     margin-bottom: 20px; 
-    white-space: pre-line; /* Активирует корректные переносы строк */
+    white-space: pre-line;
     background: rgba(30, 58, 138, 0.02);
     padding: 18px 22px;
     border-radius: 8px;
